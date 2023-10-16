@@ -25,19 +25,23 @@
                 <h1>Electricity Bill Calculator</h1>
                 <img src="lightning_icon.png" alt="lightning">
             </header>
-            <div class="main-content">
-                <form action="data.php" method="POST">
-                    <div class="form-group">
-                        <label for="usage">Usage:</label>
-                        <input type="text" name="usage">
-                    </div>
-                    <input type="submit" name="calculate" class="calculate">
-                    <button name="reset" class="reset">Reset</button>
-                </form>
-                <?php if(isset($errMsg)) {
-                    echo '<h3 class="error">' . $errMsg . '</h3>';
-                } ?>
-                <h3>Your electricity bill is <?= $bill; ?></h3>
+            <div class="main-content flex">
+                <div id="input-form-div">
+                    <form action="data.php" method="POST">
+                        <div class="form-group">
+                            <label for="usage">Usage:</label>
+                            <input type="text" name="usage">
+                        </div>
+                        <div class="button-center-div">
+                            <input type="submit" name="calculate" class="calculate">
+                            <button name="reset" class="reset">Reset</button>
+                        </div>
+                    </form>
+                    <?php if(isset($errMsg)) {
+                        echo '<h3 class="error">' . $errMsg . '</h3>';
+                    } ?>
+                    <h3>Your electricity bill is <?= $bill; ?></h3>
+                </div>
             </div>
         </div>
     </body>

@@ -21,6 +21,10 @@ html, body, h1, h2, h3, h4, h5, h6, p, a {
     margin: 0 auto;
 }
 
+#input-form-div {
+    width: 400px;
+}
+
 header {
     background-color: #4f4d4d;
     color: #fff;
@@ -37,6 +41,13 @@ header img {
 .main-content {
     text-align: center;
     padding-top: 30px;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-center-div{
+    display: flex;
+    justify-content: space-evenly;
 }
 
 form label {
@@ -57,6 +68,7 @@ form .calculate {
     color: #fff;
     border: none;
     padding: 8px 15px;
+    height: 45px;
 }
 
 form .reset {
@@ -64,6 +76,7 @@ form .reset {
     border: none;
     padding: 8px 15px;
     font-weight: bold;
+    height: 45px;
 }
 
 .error {

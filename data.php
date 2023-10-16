@@ -1,10 +1,9 @@
 <?php
 
-    #Start sessie
+    //Start sessie
     session_start();
-    //$_SESSION['valid'] = "c";
 
-    #Sanitize de waarde van $_POST['usage'] en check of geldig,
+    //Sanitize de waarde van $_POST['usage'] en check of geldig,
     if ($_SERVER["REQUEST_METHOD"] == "POST"){
         $input = sanitizeInput($_POST['usage']);
         if (isInputValid($input)){
@@ -24,24 +23,21 @@
     $limits = [50, 100, 100, 0];
     $tariffs = [3.5, 4.0, 5.2, 6.5];
 
-    function calculateCostsForTier($tier, $usage, $lim, $tar){
+    function calculateCostsForTier($tier, $usage, $limits, $tariffs){
         $internal_tier = $tier - 1;
         $cost = 0;
     
-        if ($usage >= $lim[$internal_tier]){
-            $cost += $lim[$internal_tier] * $tar[$internal_tier];
+        if ($usage >= $limits[$internal_tier]){
+            $cost += $limits[$internal_tier] * $tariffs[$internal_tier]; //Als het gebruik groter is of gelijk aan de tier, zet dan de kosten ($cost) gelijk aan de grootte van de tier($lim) vermenigvuldigd met het tarief($tar)
         }
         else{
-            $cost += $usage * $tar[$internal_tier];
+            $cost += $usage * $tariffs[$internal_tier]; //Als het gebruik kleiner is dan die tier, geef dan gewoon het gebruik ($usage) vermenigvuldigd met het tarief ($tar)
         }
-        $usage -= $lim[$internal_tier];
-    
         return $cost;
     }
     
     function isInputValid($input){
         if (is_numeric($input) && $input >= 0){
-
             return true;
         }
         else{
@@ -56,14 +52,14 @@
         return $input;
     }
 
+
     if (isset($units)){        
-        //Main Loop
-        $tier = 1; //Begin bij de eerste tier
+        $tier = 1;
         
         while ($tier <= 4 && $units > 0){
             $tiercost = calculateCostsForTier($tier, $units, $limits, $tariffs);
-            $bill += $tiercost; //Voeg de kosten van desbetreffende tier toe aan de $bill variabele
-            $units -= $limits[$tier - 1];  //Haal de limiet van de energieunits af, dan kan het programma bepalen of deze naar een volgende tier moeten
+            $bill += $tiercost;
+            $units -= $limits[$tier - 1];
             $tier++;
         }
     
