@@ -1,0 +1,73 @@
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+html, body, h1, h2, h3, h4, h5, h6, p, a {
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.flex {
+    display: flex;
+}
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+}
+
+header {
+    background-color: #4f4d4d;
+    color: #fff;
+    padding: 20px 0;
+    align-items: center;
+    justify-content: center;
+}
+
+header img {
+    width: 50px;
+    height: auto;
+}
+
+.main-content {
+    text-align: center;
+    padding-top: 30px;
+}
+
+form label {
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+form input, form button {
+    font-size: 1.3rem;
+}
+
+form input:first-of-type {
+    margin-bottom: 10px;
+}
+
+form .calculate {
+    background-color: green;
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+}
+
+form .reset {
+    background-color: yellow;
+    border: none;
+    padding: 8px 15px;
+    font-weight: bold;
+}
+
+.error {
+    color: red;
+    font-weight: bold;
+    margin: 5px 0;
+}
