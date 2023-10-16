@@ -27,7 +27,7 @@
         $internal_tier = $tier - 1;
         $cost = 0;
     
-        if ($usage >= $limits[$internal_tier]){
+        if ($usage >= $limits[$internal_tier] && $tier <= 3){
             $cost += $limits[$internal_tier] * $tariffs[$internal_tier]; //Als het gebruik groter is of gelijk aan de tier, zet dan de kosten ($cost) gelijk aan de grootte van de tier($lim) vermenigvuldigd met het tarief($tar)
         }
         else{
