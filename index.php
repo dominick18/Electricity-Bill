@@ -40,7 +40,7 @@
                     <?php if(isset($errMsg)) {
                         echo '<h3 class="error">' . $errMsg . '</h3>';
                     } ?>
-                    <h3>Your electricity bill is <?= $bill; ?></h3>
+                    <h3>Your electricity bill is <?= $bill; ?> this month</h3>
                 </div>
             </div>
         </div>
